@@ -1,0 +1,53 @@
+Centos7
+
+Docker安装
+下载并运行docker一键安装脚本
+
+curl -sSL https://get.daocloud.io/docker | sh
+
+启动docker服务
+
+systemctl start docker
+
+查看docker版本
+
+docker -v
+
+Docker-compose安装
+下载docker-compose运行脚本
+
+curl -L https://github.com/docker/compose/releases/download/1.28.6/run.sh > /usr/local/bin/docker-compose
+
+脚本文件授权
+
+chmod +x /usr/local/bin/docker-compose
+
+查看docker-compose版本
+
+docker-compose --version
+
+Docker-composo部署novel-plus
+创建mysql数据目录
+
+mkdir -p /data/docker/db/mysql
+
+下载数据库初始化脚本
+
+curl -L https://gitee.com/novel_dev_team/novel-plus/attach_files/721333/download > /data/docker/db/init.sql
+
+下载docker-compose容器编排的配置文件
+
+curl -L https://gitee.com/novel_dev_team/novel-plus/attach_files/721385/download > docker-compose.yaml
+
+启动并运行所有容器
+
+docker-compose up -d
+
+访问
+爬虫：http://ip:8081
+
+前台：http://ip:8080
+
+后台：http://ip:8088
+
+PS：感谢Github热心朋友@yanmengfei 提供的容器编排配置文件。
